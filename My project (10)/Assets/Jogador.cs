@@ -96,8 +96,63 @@ public class Jogador : MonoBehaviour
 
         }
 
+        transform.Translate(direcao * velocidade * Time.deltaTime);
+
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+
+        {
+
+            direcao.x = 0;
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+
+        {
+
+            direcao.y = 0;
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+
+        {
+
+            direcao.x = 0;
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow))
+
+        {
+
+            direcao.y = 0;
+
+        }
+
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+
+    {
+
+        if (other.CompareTag("Block"))
+
+        {
+
+            BlocoTerritorio bloco = other.GetComponent<BlocoTerritorio>();
+
+            if (bloco != null && !bloco.PegarConquistado())
+
+            {
+
+                bloco.AlterarConquista(jogador1, corDoJogador);
+
+            }
+
+        }
+
+    }
 
 }
 
