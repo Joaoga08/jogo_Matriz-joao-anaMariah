@@ -140,7 +140,7 @@ public class Jogador : MonoBehaviour
 
         {
 
-            BlocoTerritorio bloco = other.GetComponent<BlocoTerritorio>();
+            Bloco bloco = other.GetComponent<Bloco>();
 
             if (bloco != null && !bloco.PegarConquistado())
 
